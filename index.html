@@ -61,17 +61,11 @@
   <div class="footer">© 2025 El Pelón Hats. Todos los derechos reservados.</div>
 
   <script>
-    // Intentamos obtener la fecha de lanzamiento desde localStorage
-    let launchDate = localStorage.getItem('launchDate');
+    // Establece la fecha de inicio a las 6:50 PM del 17 de abril de 2025
+    const startDate = new Date("2025-04-17T18:50:00");
 
-    if (!launchDate) {
-      // Si no existe en localStorage, la establecemos como 30 días desde hoy
-      const now = new Date();
-      launchDate = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
-      localStorage.setItem('launchDate', launchDate); // Guardamos la fecha en localStorage
-    } else {
-      launchDate = new Date(launchDate); // Convertimos de nuevo a un objeto Date
-    }
+    // Calcula la fecha de lanzamiento (30 días después de la fecha de inicio)
+    const launchDate = new Date(startDate.getTime() + 30 * 24 * 60 * 60 * 1000); 
 
     const countdownEl = document.getElementById("countdown");
 
@@ -98,4 +92,14 @@
 
 </body>
 </html>
-
+                     .
+                    / V\
+                  / `  /
+                 <<   |
+                 /    |
+               /      |
+             /        |
+           /    \  \ /
+          (      ) | |
+  ________|   _/_  | |
+<__________\______)\__)
