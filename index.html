@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El Pelón Hats | Próximamente</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+    }
+
+    #countdown {
+      font-size: 2rem;
+      background: #fff;
+      color: #111;
+      padding: 15px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
+
+    #countdown:hover {
+      transform: scale(1.05);
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>El Pelón Hats</h1>
+  <p>¡Nuestra tienda estará en línea muy pronto!</p>
+  <div id="countdown">Cargando contador...</div>
+
+  <div class="footer">© 2025 El Pelón Hats. Todos los derechos reservados.</div>
+
+  <script>
+    // Fecha de lanzamiento: 30 días desde hoy
+    const now = new Date();
+    const launchDate = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const currentTime = new Date();
+      const diff = launchDate - currentTime;
+
+      if (diff <= 0) {
+        countdownEl.innerHTML = "¡Ya estamos en línea!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
