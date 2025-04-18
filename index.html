@@ -61,9 +61,18 @@
   <div class="footer">© 2025 El Pelón Hats. Todos los derechos reservados.</div>
 
   <script>
-    // Fecha de lanzamiento: 30 días desde hoy
-    const now = new Date();
-    const launchDate = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+    // Intentamos obtener la fecha de lanzamiento desde localStorage
+    let launchDate = localStorage.getItem('launchDate');
+
+    if (!launchDate) {
+      // Si no existe en localStorage, la establecemos como 30 días desde hoy
+      const now = new Date();
+      launchDate = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+      localStorage.setItem('launchDate', launchDate); // Guardamos la fecha en localStorage
+    } else {
+      launchDate = new Date(launchDate); // Convertimos de nuevo a un objeto Date
+    }
+
     const countdownEl = document.getElementById("countdown");
 
     function updateCountdown() {
@@ -89,3 +98,4 @@
 
 </body>
 </html>
+
