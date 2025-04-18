@@ -30,20 +30,6 @@
       margin-bottom: 40px;
     }
 
-    #countdown {
-      font-size: 2rem;
-      background: #fff;
-      color: #111;
-      padding: 15px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      transition: all 0.3s ease;
-    }
-
-    #countdown:hover {
-      transform: scale(1.05);
-    }
-
     .footer {
       position: absolute;
       bottom: 20px;
@@ -56,39 +42,11 @@
 
   <h1>El Pelón Hats</h1>
   <p>¡Nuestra tienda estará en línea muy pronto!</p>
-  <div id="countdown">Cargando contador...</div>
 
   <div class="footer">© 2025 El Pelón Hats. Todos los derechos reservados.</div>
 
-  <script>
-    // Establece la fecha de inicio a las 6:50 PM del 17 de abril de 2025 en UTC
-    const startDate = new Date(Date.UTC(2025, 3, 17, 18, 50, 0)); // 2025-04-17T18:50:00 UTC
-
-    // Calcula la fecha de lanzamiento (30 días después de la fecha de inicio en UTC)
-    const launchDate = new Date(startDate.getTime() + 30 * 24 * 60 * 60 * 1000); 
-
-    const countdownEl = document.getElementById("countdown");
-
-    function updateCountdown() {
-      const currentTime = new Date();
-      const diff = launchDate - currentTime;
-
-      if (diff <= 0) {
-        countdownEl.innerHTML = "¡Ya estamos en línea!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
+  <!-- Firma oculta en el código -->
+  <!-- Firmado por: Tu nombre o firma aquí -->
 
 </body>
 </html>
